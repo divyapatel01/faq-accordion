@@ -1,0 +1,199 @@
+:root {
+  --color-primary-purple: hsl(292, 83%, 54%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-light-pink: hsl(275, 100%, 97%);
+  --color-grayish-purple: hsl(292, 16%, 49%);
+  --color-dark-purple: hsl(292, 42%, 14%);
+  --typography-body-font-size: 16px;
+  --typography-body-font-family: "Work Sans";
+  --container-width: 600px;
+}
+
+/* work-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/static/WorkSans-Regular.ttf");
+}
+
+/* work-sans-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/static/WorkSans-SemiBold.ttf");
+}
+
+/* work-sans-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/static/WorkSans-Bold.ttf");
+}
+
+/* START: Common */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: var(--typography-body-font-size);
+  font-family: var(--typography-body-font-family);
+  background-color: var(--color-light-pink);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary-purple);
+}
+
+main {
+  padding-top: 140px;
+  margin-bottom: 140px;
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  padding: 16px 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    padding: 140px 30px 30px;
+    margin-bottom: 74px;
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+  }
+}
+
+/* END: Common */
+
+/* START: swatches */
+
+.swatches {
+  position: fixed;
+  display: none;
+}
+
+.swatch {
+  width: 40px;
+  height: 40px;
+}
+
+.swatch.swatch-1 {
+  background-color: var(--color-white);
+}
+
+.swatch.swatch-2 {
+  background-color: var(--color-light-pink);
+}
+
+.swatch.swatch-3 {
+  background-color: var(--color-grayish-purple);
+}
+
+.swatch.swatch-4 {
+  background-color: var(--color-dark-purple);
+}
+
+/* END: swatches */
+
+/* START: card */
+
+.card {
+  width: var(--container-width);
+  max-width: calc(100% - 80px);
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 40px 40px 20px;
+}
+
+/* START: card header */
+
+.card-header {
+  margin-bottom: 40px;
+}
+
+.card-header::before {
+  content: url("./assets/images/icon-star.svg");
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.card-title {
+  display: inline-block;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .card-header {
+    margin-bottom: 0;
+  }
+  .card-title {
+    font-size: 50px;
+  }
+}
+
+/* END: card header */
+
+/* END: card */
+
+/* START: accordion */
+
+.accordion:not(:last-child) {
+  border-bottom: 1px solid var(--color-light-pink);
+}
+
+.accordion-header {
+  padding: 30px 0;
+  cursor: pointer;
+}
+
+.accordion-header::after {
+  content: url("./assets/images/icon-plus.svg");
+  vertical-align: middle;
+  float: right;
+}
+
+.accordion-title {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+  transition: 0.3s ease-in-out;
+  width: calc(100% - 40px);
+}
+
+.accordion-content {
+  display: none;
+  padding-bottom: 30px;
+}
+
+.accordion-header:hover .accordion-title {
+  color: var(--color-primary-purple);
+}
+
+.accordion.collapse .accordion-content {
+  display: block;
+}
+
+.accordion.collapse .accordion-header::after {
+  content: url("./assets/images/icon-minus.svg");
+}
+
+/* END: accordion */
